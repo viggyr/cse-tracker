@@ -1,0 +1,16 @@
+{
+  "name": "cse-tracker",
+  "version": "1.0.0",
+  "description": "track your department",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.11.1",
+    "node-persist": "0.0.6",
+    "express": "^4.13.3"
+  }
+}
