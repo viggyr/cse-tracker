@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    
+                <label style="margin-left:5px;color:blue">Welcome</label> 
+                </li>
+                <li>
+                    <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="buton" id ="menu1" data-toggle="dropdown">E-library<span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                   <li role="presentation"> <a  style="padding-left:0px" id="book1" role="menuitem" tabindex="-1" href="#" onclick="load_books()">Search Books</a>
+                </li>
+                <li role="presentation"> <a style="padding-left:0px" id="book2" role="menuitem" tabindex="-1" href="#" onclick="load_booksUpdate()">Add and Update Books</a>
+                </li> 
+            </ul>
+            </div>
+            </li>
+
+            <li>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="buton" id ="menu2" data-toggle="dropdown">Question Papers<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
+                   <li role="presentation"> <a style="padding-left:0px" id="qp1" role="menuitem" tabindex="-1" href="#" onclick="download_papers()">Download Question papers</a>
+                </li>
+                <li role="presentation"> <a style="padding-left:0px" id="qp2" role="menuitem" tabindex="-1" href="#" onclick="Upload_papers()">Upload Question Papers</a>
+                </li>
+                </ul>
+            </div>
+        </li>
+
+            <li>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="buton" id ="menu3" data-toggle="dropdown">Projects<span class="caret"></span></button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu3">
+                   <li role="presentation"> <a style="padding-left:0px" id="proj1" role="menuitem" tabindex="-1" href="#" onclick="get_projects()"> Project Details</a>
+                </li>
+                <li role="presentation"> <a style="padding-left:0px" id="qp2" role="menuitem" tabindex="-1" href="#" onclick="Upload_project()">New Project</a>
+                </li>
+                </ul>
+            </div>
+        </li>
+
+                <li>
+                    <a href="#">Events</a>
+                </li>
+               <!-- <li>
+                    <a href="#">About</a>
+                </li>
+                <li>
+                    <a href="#">Services</a>
+                </li>
+                <li>
+                    <a href="#">Contact</a>
+                </li>-->
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+       
+        <div id="page-content-wrapper">
+             <div>
+            <h1 style="text-align:center">CSE DEPARTMENT MANAGEMENT SYSTEM</h1>
+         </div>
+            <div class="container-fluid" id="1">
+                <div class="row">
+                    <div class="col-lg-12">
+                <!--     <h1>Simple Sidebar</h1>
+                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>-->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+ <!--   <script>
+$(document).ready( function() {
+    $("#book").on("click", function() {
+        $("#page-content-wrapper").load("searchBook.html");
+    });
+});
+    </script> -->
+<script type="text/javascript">
+function load_books() {
+     document.getElementById("1").innerHTML='<object type="text/html" data="searchBook.html" ></object>';
+}
+function load_papers() {
+     document.getElementById("1").innerHTML='<object type="text/html" data="getPapers.html" ></object>';
+}
+function load_projects() {
+     document.getElementById("1").innerHTML='<object type="text/html" data="getProjects.html" ></object>';
+}
+</script>
+</body>
+
+</html>
