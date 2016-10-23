@@ -13,3 +13,13 @@ h1
 {
 	margin: 6px 0;
 }
+ .cform
+   {
+   	margin-top: 40px;
+   }
+@media(max-width:768px) {
+   .cform
+   {
+   	margin-top: 120px;
+   }
+}
