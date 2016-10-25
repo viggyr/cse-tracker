@@ -8,7 +8,7 @@ var connectdb=
 				  host     : 'localhost',
 				  user     : 'root',
 				  password : 'viggymysql@96',
-				  database : 'student'
+				  database : 'cse'
 			});
 
 			connection.connect(function(err)
@@ -23,8 +23,6 @@ var connectdb=
 									}
 			                   });
 			},
-
-			querystring  :'SELECT * from students',
 			updateString :'INSERT INTO students values ("waste")',
 			insert:function()
 						{
@@ -37,9 +35,9 @@ var connectdb=
 											});
 						}
 			,
-			query:function(callMe)
+			query:function(queryString,callMe)
 			{
-								connection.query(this.querystring,function(err,rows)
+								connection.query(queryString,function(err,rows)
 								{
 										if(err)
 											throw err;
