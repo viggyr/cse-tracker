@@ -90,4 +90,20 @@ console.log($books);
      
     $('#page-wrapper').append($books);
 }
+function RegisterForm()
+{
+ event.preventDefault();
+    var formData= $('#register').serialize();
+    $.ajax({
+                type: 'POST',
+                url: 'http://localhost:2020/registration',
+                data: formData ,
+                dataType:'json'
+
+                
+                }).done(function(data){
+                     console.log("redirect");  
+                     window.location.replace('Home.html') 
+                    })    
+}
 
