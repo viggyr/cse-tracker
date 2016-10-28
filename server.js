@@ -33,12 +33,21 @@ app.post('/search', function(req, res) {
 	  	}); 
  
 });
-app.post('/registration',function(req,res)
-	{
-		var insertString ="insert into faculty () values {";
+app.post('/registration',function(req,res) {
+	var insertString ="insert into faculty(name,designation,e-mail_id,contact)values('"+req.body.Nametxt +"','"+req.body.Optradio+"','"+req.body.Emailtxt+"','"+req.body.Contacttxt+"';";
 	});
-
-
+        db.query(insertString,function(data)
+		 {
+		  console.log("inserted faculty data into database");
+	         });
+        var insertString2="insert into login(role_id,username,password)values('2',"+"'"+req.body.Emailtxt+"','"+req.body.Passwordtxt+'");";
+	db.query(insertString,function(data)
+		 {
+		   console.log("inserted into login table");
+		   res.redirect("home.html");
+	});
+  
+});
 app.listen(2020,function()
 	{
 		console.log("listening to port 2020");
