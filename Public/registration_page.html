@@ -60,7 +60,9 @@ h2 {
     <div class="media-body">
       <div class="row">
         <div class="col-md-12">
-      <h2 class="media-heading" style="color:blue"><strong><span>CSE LIBRARY MANAGEMENT SYSTEM</strong></span></h2>
+
+         
+         <h2 class="media-heading" style="color:blue"><strong><span>CSE LIBRARY MANAGEMENT SYSTEM</strong></span></h2>
     </div>
   </div>
       <br>
@@ -71,23 +73,12 @@ h2 {
 
   <br>
 <div>
-  <form name="myform"  method="post">
+  <form name="myform" id="register"  method="post" action="http://localhost:2020/student">
 <div class="vertical-center" style="margin-top:65px">
   <div class="container">
   <div class="row">
     <div class="col-md-4 col-md-offset-4 well">
     <h1 class="text-center">Register Here</h1>
-      <div class="form-group">
-        <label>
-          E-mail
-        </label>
-        <div class="input-group">
-        <span class="input-group-addon" >
-          <span class="glyphicon glyphicon-user"></span>
-        </span>
-        <input type="email" placeholder="@rvce.edu" name="email" class="form-control" required="required">  
-        </div>
-      </div>
 
       <div class="form-group">
       	<label>
@@ -97,9 +88,21 @@ h2 {
           <span class="input-group-addon" >
           <span class="glyphicon glyphicon-user"></span>
           </span>
-          <input type="text" class="form-control" name="name" required="required"> 		
+          <input id="Nametxt" type="text" class="form-control" name="name" required="required"> 		
       </div>
   </div>
+     
+     <div class="form-group">
+        <label>
+          E-mail
+        </label>
+        <div class="input-group">
+        <span class="input-group-addon" >
+          <span class="glyphicon glyphicon-user"></span>
+        </span>
+        <input type="email" id="Emailtxt" placeholder="@rvce.edu" name="email" class="form-control" required="required">  
+        </div>
+      </div>
       
       <div class="form-group">
         <label>
@@ -109,7 +112,20 @@ h2 {
         <span class="input-group-addon">
         <i class="glyphicon glyphicon-lock"></i>
         </span>
-        <input type="password" name="password" class="form-control" required="required">  
+        <input type="password" id="Passwordtxt" name="password" class="form-control" required="required">  
+        </div>  
+      </div>
+     
+     <div class="form-group">
+        <label>
+          Contact No.
+        </label>
+        <div class="input-group">
+        <span class="input-group-addon">
+        <i class="glyphicon glyphicon-phone-alt"></i>
+        </span>
+        <input type="tel" name="telephone" maxlength=
+            "10" class="form-control" id="Contacttxt" required="required">  
         </div>  
       </div>
 
@@ -118,10 +134,10 @@ h2 {
       	   Designation
          </label>
          <div class="radio">
-  <label><input type="radio" name="optradio">Proffesor</label>
+  <label><input type="radio" name="optradio" value="Professor">Professor</label>
      </div>
          <div class="radio">
-  <label><input type="radio" name="optradio">Assistant Proffesor</label>
+  <label><input type="radio" name="optradio" value="Assistant Professor" >Assistant Professor</label>
          </div>
 
       <div class="form-group">
