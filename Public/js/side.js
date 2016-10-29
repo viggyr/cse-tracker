@@ -103,7 +103,7 @@ function RegisterForm()
                 
                 }).done(function(data){
                      console.log("redirect");  
-                     window.location.replace('Home.html') 
+                     window.location="http://localhost:2020/home";
                     })    
 }
 
