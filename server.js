@@ -44,7 +44,7 @@ app.post('/registration',function(req,res) {
 	db.query(insertString,function(data)
 		 {
 		   console.log("inserted into login table");
-		   res.redirect("home.html");
+		   res.send(data);
 	});
   
 });
