@@ -1,157 +1,101 @@
 <html>
 <head>
- <link href="css/font-awesome.min.css" rel="stylesheet"/>
- <link href="css/font-awesome.css" rel="stylesheet"/>
- <link href="css/style.css" rel="stylesheet"/>
-<link href="css/bootstrap.css" rel="stylesheet"/>
-<link href="css/bootstrap-theme.css" rel="stylesheet"/>
-<link href="css/sidebar.css" rel="stylesheet"/>
-<script src="js/jquery.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/sidebar.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
 
-<script src="js/bootstrap.js"></script>
-<script src="js/side.js" type="text/javascript"></script>    
-<style>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/side.js" type="text/javascript"></script>    
+    <style>
 
-</style>
+    </style>
 </head>
 <body>
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
-    <!-- Navigation -->
+    <div id="throbber" style="display:none; min-height:120px;"></div>
+    <div id="noty-holder"></div>
+    <div id="wrapper">
+        <!-- Navigation -->
 
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="container-fluid">
-            <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <div class="navbar-brand" style="float-left">
-                <img src="images/rv-logo.JPG" style="width:50px;height:50px;margin-left:60px" class="crop">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand" style="float-left">
+                        <img src="images/rv-logo.JPG" style="width:50px;height:40px;margin-left:60px" class="crop">
+                    </div>
+                    <div class="navbar-brand">
+                        <h2 style="margin-top:5px;color:blue">RVCE CSE</h2>
+                    </div>
+                </div>
+
+
+                <ul class="nav navbar-nav navbar-right">                      
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="fa fa-angle-down"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul> 
+
             </div>
-           <div class="navbar-brand">
-                <h2 style="margin-top:5px;color:blue">RVCE CSE</h2>
-            </div>
-        </div>
 
 
-<ul class="nav navbar-nav navbar-right">
-                      
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="fa fa-angle-down"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
-                    <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="#" onclick="goHome()" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" class="fa fa-book" data-target="#submenu-1"><i></i> E-Library <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-1" class="collapse">
+                            <li><a href="#" onclick="loadBooks()"><i class="fa fa-angle-double-right"></i>Search Books</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Add and Update Books</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Issue Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Question Papers <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-2" class="collapse">
+                            <li><a href="#" onclick="requestInsertQ()"><i class="fa fa-angle-double-right"></i> Upload Question Papers</a></li>
+                            <li><a href="#" onclick="question_papers()"><i class="fa fa-angle-double-right"></i> Download Question Papers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-paper-plane-o"></i> Projects<i class="fa fa -fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-3" class="collapse">
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>Project Details</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i>New Project</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> Events</a>
+                    </li>
                 </ul>
-               </li>
-            </ul> 
-        
-        </div>
-
-
-        <!-- Top Menu Items -->
-                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav side-nav">
-            <li>
-                    <a href="#" onclick="goHome()" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" class="fa fa-book" data-target="#submenu-1"><i></i> E-Library <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-1" class="collapse">
-                        <li><a href="#" onclick="loadBooks()"><i class="fa fa-angle-double-right"></i>Search Books</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Add and Update Books</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Issue Details</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Question Papers <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-2" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Upload Question Papers</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i> Download Question Papers</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-paper-plane-o"></i> Projects<i class="fa fa -fw fa-angle-down pull-right"></i></a>
-                    <ul id="submenu-3" class="collapse">
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>Project Details</a></li>
-                        <li><a href="#"><i class="fa fa-angle-double-right"></i>New Project</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> Events</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
- 
-    <div id="page-wrapper" class="cform" >
-
- <div style="overflow:hidden" >
-            <h2>Welcome</h2>
-            <br>
-             <p> The B.E. in Computer Science and Engineering programme was started in 1984. The programme is designed to create globally competent manpower for the information and communication technology (ICT) industry. At the same time, it is also designed to prepare the student for post graduate education in the best universities across the globe. These twin objectives are accomplished by including an optimal mix of fundamental theory subjects and practical, current and industry relevant subjects in the scheme of study.</p>
-             <p> The Department has state-of-the-art infrastructure and computing equipment supported by high speed Ethernet and wireless networks. Various student organisations like CSI Chapter, IEEE Student Chapter are active throughout the year.</p>
-             <p>The Department has a comprehensive curriculum on topics related to all aspects of Computer Hardware and Software with an emphasis on practical learning. The course structure is in line with latest advances in technology which equip the students with the latest developments in Computer Science and Engineering.</p>
-             <br>
-            <div> <img src="images/dept_img.JPG" style="width:400px;height:200px;margin-left:300px"></img>
             </div>
-             </br>             
-        </div>
-</div>
-</div>
-<div id="content" style="display: none">
-        <form method="POST" class="form-inline" id="search" action="http://localhost:2020/search">
-              <div class="form-group">
-                  <div class="input-group">
-                        <div class="input-group-addon"><span class="glyphicon glyphicon-book"></span>
-                        </div>
-                    
-                        <input type="text" class="form-control" name="title" placeholder="Book Title">
-                  </div>
-              </div>
-              <div class="form-group">
-                  <div class="input-group">
-                      <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
-                      </div>
+        </nav>
 
-                  <input type="text" class="form-control" name="author" placeholder="Author">
-                  </div>
-                 <button type="submit" onclick="submit_search()" class="btn btn btn-primary">Search</button>
-              </div>
-                
-        </form>
-        <!-- /.container-fluid -->    
+        <div id="page-wrapper" class="cform" >
 
-    
-    <div >
-        <div class="table-responsive">
-            <table id="booktable" class="table table-bordered">
-              <tr class="active">
-              <td>Book Name</td>
-              <td>Author</td>
-              <td>Subject</td>
-              <td>Available</td>
-              </tr>
-              <tbody id="result">
-                  
-              </tbody>
-             
-            </table>
+
         </div>
     </div>
-</div>
-<script type="text/javascript">
-function load_books() {
-     //document.getElementById("content").innerHTML='<object type="text/html" data="Searchbook.html" ></object>';
-}
 </script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+    <div id="content">
+      <form method="POST" class="form-inline" id="qpapers" action="http://localhost:2020/question_papers">
+        <div class="form-group">
+          <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span>
+                        </div>
+
+                    <input type="text" class="form-control" name="subject" placeholder="Subject">
+                    </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" onclick="search_papers()" class="btn btn btn-primary">Search</button>
+          </div>
+          
+
+      </div>
+
+
+    </form>
+    <!-- /.container-fluid -->    
+
+
+    <div >
+      <div class="table-responsive">
+        <table id="booktable" class="table table-bordered">
+          <tr class="active">
+            <td>Subject</td>
+            <td>Year</td>
+            <td>Download</td>
+          </tr>
+          <tbody id="resultQ">
+
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+  </div>

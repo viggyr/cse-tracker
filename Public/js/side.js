@@ -1,4 +1,6 @@
 $(function(){
+ goHome();
+ 
     $('[data-toggle="tooltip"]').tooltip();
     $(".side-nav .collapse").on("hide.bs.collapse", function() {                   
         $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
@@ -6,10 +8,7 @@ $(function(){
     $('.side-nav .collapse').on("show.bs.collapse", function() {                        
         $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");        
     });
-    $('#search').submit(function(event)
-    {
-    	
-    });
+    
 });
 function submit_search()
 {
@@ -74,20 +73,163 @@ $('#result').empty();
     }
  
 }
+function search_papers()
+{
+event.preventDefault();
+        var formData= $('#qpapers').serialize();
+        
+        
+            $.ajax(
+            {
+                type: 'POST',
+                url: 'http://localhost:2020/sendQDetails',
+                data: formData ,
+                dataType:'json'
+
+                
+                }).done(function(data)
+                {
+                   
+                    addQRows(data);
+                }).fail(function()
+                {
+                    console.log("failed to fetch from server");
+            });
+}
+function question_papers()
+{
+    console.log("question_papers");
+    $.ajax({
+    type:'GET',
+    url: 'http://localhost:2020/question_papers',
+    dataType: 'html'
+}).done(function(html)
+{
+    $('#page-wrapper').empty();
+    $('#page-wrapper').append($(html));
+}
+    ).fail(function()
+    {
+    alert("fail");
+    });    
+
+
+}
 function goHome()
 {
-    var home = '<div style="overflow:hidden" id="content"><h2>Welcome</h2><br><p> The B.E. in Computer Science and Engineering programme was started in 1984. The programme is designed to create globally competent manpower for the information and communication technology (ICT) industry. At the same time, it is also designed to prepare the student for post graduate education in the best universities across the globe. These twin objectives are accomplished by including an optimal mix of fundamental theory subjects and practical, current and industry relevant subjects in the scheme of study.</p><p> The Department has state-of-the-art infrastructure and computing equipment supported by high speed Ethernet and wireless networks. Various student organisations like CSI Chapter, IEEE Student Chapter are active throughout the year.</p>'
-             +'<p>The Department has a comprehensive curriculum on topics related to all aspects of Computer Hardware and Software with an emphasis on practical learning. The course structure is in line with latest advances in technology which equip the students with the latest developments in Computer Science and Engineering.</p>'
-             +'<br><div> <img src="images/dept_img.JPG" style="width:400px;height:200px;margin-left:300px"></img></div></br></div>';
+ $.ajax({
+    type:'GET',
+    url: 'http://localhost:2020/home',
+    dataType: 'html'
+}).done(function(html)
+{
     $('#page-wrapper').empty();
-    $('#page-wrapper').append(home);
+    $('#page-wrapper').append($(html));
+}
+    ).fail(function()
+    {
+    alert("fail");
+    });    
+
 }
 function loadBooks()
 {
-    $('#page-wrapper').empty();
+    /*$('#page-wrapper').empty();
 var $books = $('#content').html();
 console.log($books);
      
-    $('#page-wrapper').append($books);
-}
+    $('#page-wrapper').append($books);*/
 
+    $.ajax({
+    type:'GET',
+    url: 'http://localhost:2020/books',
+    dataType: 'html'
+}).done(function(html)
+{
+    $('#page-wrapper').empty();
+    $('#page-wrapper').append($(html));
+}
+    ).fail(function()
+    {
+    alert("fail");
+    });
+}
+function downloadQ(q_id)
+{
+
+$.ajax({
+    type:'GET',
+    url: 'http://localhost:2020/download/'+q_id,
+    dataType: 'html'
+}).done(function(data)
+{
+    
+    }).fail(function()
+    {
+    alert("fail");
+    });
+}
+function addQRows(datas)
+{
+    if(datas.length>0)
+    {
+
+$('#resultQ').empty();
+        datas.forEach(function(data)
+        {           
+           
+            $('#resultQ').append('<tr><td>'+data.subject_name+'</td><td>'+data.year+'</td><td><a class="glyphicon glyphicon-download-alt"'
+                +'href="http://localhost:2020/download/'+data.q_id+'" download></a></td><td></tr>');
+        });
+
+   
+    }
+    else 
+    {
+        console.log("here");
+       $('#resultQ').empty();
+        $('#resultQ').html('<div class="text-center"><h3>Incorrect subject name</h3></div>');
+    }
+
+}
+function requestInsertQ()
+{
+$.ajax({
+    type:'GET',
+    url: 'http://localhost:2020/insertQpage',
+    dataType: 'html'
+}).done(function(html)
+{
+    $('#page-wrapper').empty();
+    $('#page-wrapper').append($(html));
+}
+    ).fail(function()
+    {
+    alert("fail");
+    });     
+}
+function sendPaper()
+{
+    event.preventDefault();
+    var formData = new FormData($('#insertQPaper')[0]);
+//alert(formData);
+
+    $.ajax({
+        url: 'http://localhost:2020/uploads',
+        type: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false
+    }).done(function(data)
+    {
+       
+        $('#page-wrapper').empty();
+        $('#page-wrapper').append('<h2>'+data+'</h2>');
+    }).fail(function()
+    {
+        
+        $('#page-wrapper').empty();
+        $('#page-wrapper').append('<div><h2>Failure</h2></div>');
+    });
+   // return false;
+}

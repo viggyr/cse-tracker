@@ -23,15 +23,14 @@ var connectdb=
 									}
 			                   });
 			},
-			updateString :'INSERT INTO students values ("waste")',
-			insert:function()
+			
+			insert:function(updateString,callMe)
 						{
-											connection.query(this.updateString,function(err,rows)
+											connection.query(updateString,function(err,rows)
 											{
 													if(err)
 														throw err;
-													console.log('Data received fron db\n');
-													console.log(rows);
+													callMe(rows);
 											});
 						}
 			,
