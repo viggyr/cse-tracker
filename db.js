@@ -38,10 +38,9 @@ var connectdb=
 			{
 								connection.query(queryString,function(err,rows)
 								{
-										if(err)
-											throw err;
+										
 										console.log('Data received fron db\n');
-										callMe(rows);
+										callMe(err,rows);
 										//console.log(typeof rows);
 										
 								});

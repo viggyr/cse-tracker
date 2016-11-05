@@ -3,7 +3,7 @@ var connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'viggymysql@96',
-  database : 'student'
+  database : 'cse'
 });
 
 connection.connect(function(err)
@@ -18,7 +18,7 @@ connection.connect(function(err)
 		}
 	});
 
-var querystring = "SELECT * from students where name='cklcmka'";
+var querystring = "SELECT * from users where email='coolrv.r@gmail.com'";
 var updateString = 'INSERT INTO students values ("varun")';
 connection.query(querystring,function(err,rows)
 	{
