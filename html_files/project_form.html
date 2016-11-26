@@ -1,0 +1,57 @@
+<div id="issuePage" >
+
+
+    <div class="container-fluid well">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h2 >ENTER PROJECT DETAILS</h2>
+            </div>
+        </div>
+
+
+        <form class="form-horizontal" id="projects" style="margin-top:40px">
+            <div class="form-group ">
+                <label  class="control-label col-xs-4">Project No </label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" name="project_no" required="required">
+                </div>
+            </div>
+            <div class="form-group ">
+                <label  class="control-label col-xs-4">PROJECT DESCRIPTION </label>
+                <div class="col-xs-4">
+                    <textarea class="form-control" name="project_description" rows="3"></textarea>
+                </div>
+            </div>
+             <div class="form-group ">
+                <label  class="control-label col-xs-4">DOMAIN(ex: netwokrking,cv) </label>
+                <div class="col-xs-4">
+                   <input type="text" class="form-control" name="domain" required="required">
+                </div>
+            </div>
+            <div class="form-group ">
+            <label  class="control-label col-xs-4">From Year/To Year</label>
+                <div class=" col-xs-4">
+                    <input type="text"  class="form-control" name="period" required="required">
+                </div>
+            </div>
+
+            
+
+            <div class="form-group ">
+                
+                <label class="control-label col-xs-4">FACULTY'S ID</label>
+                <div class=" col-xs-4">
+                 
+                    <input type="text"  class="form-control"  placeholder="faculty1,faculty2,faculty3..." name ="faculty_id">
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+                <div class="col-xs-offset-2 ">
+                    <button type="submit" class="btn btn-primary" onclick="putProjectDetails(event)">Add</button>
+                </div>
+            </div>    
+        </form>
+
+    </div>
+</div>

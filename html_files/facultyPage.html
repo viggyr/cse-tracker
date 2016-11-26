@@ -1,0 +1,41 @@
+  <div id="content" >
+  <style type="text/css">
+  
+  </style>
+          <form method="POST" class="form-inline" id="project_search" action="http://localhost:2020/search">
+               
+                
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-book"></span>
+                        </div>
+
+                    <input type="text" class="form-control" name="faculty_name" placeholder="Faculty Name">
+                    </div>
+                   <button type="submit" onclick="getFacultyDetails(event)" class="btn btn btn-primary">Search</button>
+                </div>
+                  
+          </form>
+          <!-- /.container-fluid -->    
+
+      
+      <div >
+          <div class="table-responsive">
+              <table id="booktable" class="table table-bordered">
+              <thead>
+                <tr class="active">
+                <th style="width:250px">Faculty Name</th>
+                <th>Faculty Id</th>
+                 <th>Designation</th>
+                <th>Email Id</th>
+                <th>Contact No</th>
+                </thead>
+                </tr>
+                <tbody id="result">
+                    
+                </tbody>
+               
+              </table>
+          </div>
+      </div>
+  </div>

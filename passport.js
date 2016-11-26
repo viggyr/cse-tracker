@@ -16,7 +16,7 @@ module.exports = function(passport) {
 
     // used to deserialize the user
     passport.deserializeUser(function(id, done) {
-    	db.query("select * from faculty where faculty_id = "+id,
+    	db.query("select * from faculty where faculty_id = '"+id+"';",
     		function(err,rows){	
     				console.log('deserialize');
     			done(err, rows[0]);
@@ -37,13 +37,13 @@ module.exports = function(passport) {
         passReqToCallback : true // allows us to pass back the entire request to the callback
     },
     function(req, email, password, done) {
-    	console.log(req.body);
-    	console.log(password);
+    	//console.log(req.body);
+    	//console.log(password);
 
 		// find a user whose email is the same as the forms email
 		// we are checking to see if the user trying to login already exists
 		db.query("select * from faculty where email = '"+email+"'",function(err,rows){
-			console.log(rows);
+			//console.log(rows);
 			console.log("above row object");
 
 			if (err)               
@@ -59,12 +59,16 @@ module.exports = function(passport) {
 
                 newUserMysql.email    = email;
                 newUserMysql.password = password; // use the generateHash function in our user model
-
-                var insertQuery = "INSERT INTO faculty ( email, password,name,designation,contact ) values ('" + email +"','"+ password +"','"+
+                if(req.body.optradio=='Associate Professor')
+                    req.body.name='Dr.'+req.body.name;
+                else
+                    req.body.name='Prof.'+req.body.name;
+                
+                var insertQuery = "INSERT INTO faculty (faculty_id ,email, password,name,designation,contact ) values ('" +req.body.faculty_id+"','"+ email +"','"+ password +"','"+
                 req.body.name +"','"+ req.body.optradio +"','"+ req.body.telephone +"')";
                 //console.log(insertQuery);
                 db.query(insertQuery,function(err,rows){
-                	newUserMysql.faculty_id = rows.insertId;
+                	newUserMysql.faculty_id = req.body.faculty_id;
 
                 	return done(null, newUserMysql);
                 });	
@@ -99,6 +103,7 @@ module.exports = function(passport) {
 
             // all is well, return successful user
             console.log('login yes');
+            
             return done(null, rows[0]);			
 
         });

@@ -1,0 +1,42 @@
+  <div id="content">
+          <form method="POST" class="form-inline" id="issue_search" action="http://localhost:2020/search">
+                <div class="form-group">
+                    <div class="input-group">
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+                          </div>
+                      
+                          <input type="text" class="form-control" name="usn" placeholder="USN">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-book"></span>
+                        </div>
+
+                    <input type="text" class="form-control" name="b_name" placeholder="Book Name">
+                    </div>
+                   <button type="submit" onclick="getIssueDetails(event)" class="btn btn btn-primary">Search</button>
+                </div>
+                  
+          </form>
+          <!-- /.container-fluid -->    
+
+      
+      <div >
+          <div class="table-responsive">
+              <table id="booktable" class="table table-bordered ">
+                <tr class="active">
+                <td>Book Name</td>
+                <td>USN</td>
+                 <td>Issue Date</td>
+                <td>Deadline</td>
+                <td>Notify</a>
+                </tr>
+                <tbody id="result">
+                    
+                </tbody>
+               
+              </table>
+          </div>
+      </div>
+  </div>

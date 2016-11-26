@@ -1,0 +1,90 @@
+<div id="issuePage" >
+    <script type="text/javascript">
+        date_details();
+        return_detail();
+    </script>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container-fluid well">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 >BOOK ISSUE DETAILS</h2>
+                        </div>
+                    </div>
+
+
+                    <form class="form-horizontal" id="issue" style="margin-top:40px">
+                        <div class="form-group ">
+                        <label  class="control-label col-xs-4">USN: </label>
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" id="usn" name="usn" placeholder="USN" required="required">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label  class="control-label col-xs-4">Book ISBN: </label>
+                            <div class=" col-xs-4">
+                                <input type="text"  class="form-control" id="bookisbn" name="isbn" placeholder="ISBN" required="required">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label  class="control-label col-xs-4">ISSUE DATE: </label>
+                            <div class="col-xs-4">
+                                <input type="text"  class="form-control" id="issuedate" name="issue_date" placeholder="">
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label  class="control-label col-xs-4">RETURN DATE: </label>
+                            <div class=" col-xs-4">
+                                <input type="text"  class="form-control" id="returndate"  name ="return_date" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-offset-2 ">
+                                <button type="submit" class="btn btn-primary" onclick="sendIssueDetails()">Issue</button>
+                            </div>
+                        </div>    
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-md-6" style="margin-top: 50px">
+                <div class="container-fluid well">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2>BOOK RETURNS</h2>
+                        </div>
+                    </div>
+                
+
+                <form class="form-horizontal" id="return" style="margin-top:50px">
+
+                    <div class="form-group">
+                        <label  class="control-label col-xs-4">USN</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" id="usn" name="usn" placeholder="USN" required="required">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="control-label col-xs-4">Book ISBN</label>
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" id="bookisbn" name="isbn" placeholder="ISBN" required="required">
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-offset-2 col-xs-10">
+                            <button type="submit" onclick="sendReturnDetails()" class="btn btn-primary">Returned</button>
+                        </div>
+                    </div>
+
+                </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

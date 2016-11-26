@@ -1,0 +1,54 @@
+  <div id="content" >
+  <style type="text/css">
+  
+  </style>
+          <form method="POST" class="form-inline" id="project_search" action="http://localhost:2020/search">
+                <div class="form-group">
+                    <div class="input-group">
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+                          </div>
+                      
+                          <input type="text" class="form-control" name="domain" placeholder="DOMAIN">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
+                          </div>
+                      
+                          <input type="text" class="form-control" name="description" placeholder="Project Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-book"></span>
+                        </div>
+
+                    <input type="text" class="form-control" name="faculty_name" placeholder="Faculty Name">
+                    </div>
+                   <button type="submit" onclick="getProjectDetails(event)" class="btn btn btn-primary">Search</button>
+                </div>
+                  
+          </form>
+          <!-- /.container-fluid -->    
+
+      
+      <div >
+          <div class="table-responsive">
+              <table id="booktable" class="table table-bordered">
+              <thead>
+                <tr class="active">
+                <th style="width:250px">Project Domain</th>
+                <th>Description</th>
+                 <th>Period</th>
+                <th colspan="3" style="text-align: center;">Faculty</th>
+                </thead>
+                </tr>
+                <tbody id="result">
+                    
+                </tbody>
+               
+              </table>
+          </div>
+      </div>
+  </div>

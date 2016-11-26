@@ -23,25 +23,19 @@ var connectdb=
 									}
 			                   });
 			},
-			
-			insert:function(updateString,callMe)
-						{
-											connection.query(updateString,function(err,rows)
-											{
-													if(err)
-														throw err;
-													callMe(rows);
-											});
-						}
-			,
 			query:function(queryString,callMe)
 			{
 								connection.query(queryString,function(err,rows)
 								{
-										
+									if(err)
+									{
+										console.log('err');
+										throw err;
+										}
 										console.log('Data received fron db\n');
+										//console.log(rows);
 										callMe(err,rows);
-										//console.log(typeof rows);
+										
 										
 								});
 			}

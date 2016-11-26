@@ -1,0 +1,164 @@
+<html>
+<head>
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="css/font-awesome.css" rel="stylesheet"/>
+    <link href="css/style.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-theme.css" rel="stylesheet"/>
+    <link href="css/sidebar.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+<script src="js/date.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/side.js" type="text/javascript"></script>    
+    <style>
+ .modal-dialog
+{
+  width: 800px;
+  height: 800px;
+}
+    </style>
+    <title>
+      RVCE CSE PORTAL
+    </title>
+</head>
+<body>
+    <div id="throbber" style="display:none; min-height:120px;"></div>
+    <div id="noty-holder"></div>
+    <div id="wrapper">
+        <!-- Navigation -->
+
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand" style="float-left">
+                        <img src="images/rv-logo.JPG" style="width:50px;height:40px;margin-left:10px" class="crop">
+                    </div>
+                    <div class="navbar-brand">
+                        <h2 style="margin-top:5px">RVCE CSE PORTAL</h2>
+                    </div>
+                </div>
+
+
+                <ul class="nav navbar-nav navbar-right">                      
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="fa fa-angle-down"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-cog"></i> Change Password</a></li>
+                            <li class="divider"></li>
+                            <li><a href="http://localhost:2020/logout"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul> 
+
+            </div>
+
+
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="#" onclick="goHome()" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+                    </li>
+                     
+                    <li>
+                        <a href="#" data-toggle="collapse" class="fa fa-book" data-target="#submenu-1"><i></i> Dept Library <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-1" class="collapse">
+                            <li><a href="#" onclick="loadBooks()"><i class="fa fa-angle-double-right"></i>Search Books</a></li>
+                            <li><a href="#" onclick="getIssuePage()"><i class="fa fa-angle-double-right"></i> Add Issue/Return(Library Staff only)</a></li>
+                            <li><a href="#" onclick="getIssueDetailsPage()"><i class="fa fa-angle-double-right"></i> Issue Details</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" onclick="getTtPage()"><i class="fa fa-fw fa-paper-plane-o"></i> TimeTable</a>
+                        
+                    </li>
+
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> Question Papers <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-2" class="collapse">
+                            <li><a href="#" onclick="requestInsertQ()"><i class="fa fa-angle-double-right"></i> Upload Question Papers(Faculty only)</a></li>
+                            <li><a href="#" onclick="question_papers()"><i class="fa fa-angle-double-right"></i> Download Question Papers</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-fw fa-paper-plane-o"></i> Projects<i class="fa fa -fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-3" class="collapse">
+                            <li><a href="#" onclick="getProjectDetailsPage()"><i class="fa fa-angle-double-right"></i>Project Details</a></li>
+                            <li><a href="#" onclick="getProjectpage()"><i class="fa fa-angle-double-right"></i>New Project(Faculty Only)</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="collapse" class="fa fa-book" data-target="#submenu-4"><i></i> Faculty <i class="fa fa-fw fa-angle-down pull-right"></i></a>
+                        <ul id="submenu-4" class="collapse">
+                            <li><a href="#" onclick="loadFaculty()"><i class="fa fa-angle-double-right"></i>Faculty Details</a></li>
+                            
+                            <li><a href="#" onclick="getSubjectHandlesPage()"><i class="fa fa-angle-double-right"></i>Subjects Handled</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> Events</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="cform" >
+
+
+        </div>
+       
+        <div class="modal fade"  id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Time Table</h4>
+      </div>
+      <div class="modal-body">
+        <img src="" id="imagepreview" style="width: 750px; height: 500px;" >
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+ 
+</div>
+</div>
+<div class="modal fade" id="authModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Authentication</h4>
+        </div>
+        <div class="modal-body">
+        <div class="alert alert-danger" role="alert">
+          <p>You are not logged in</p>
+          <p>Only Faculties can Access this</p>
+        </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    </div>
+</script>
+</body>
+</html>

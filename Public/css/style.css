@@ -9,6 +9,10 @@ h1
 {
 	margin:24px 0;
 }
+h2
+{
+  font-family: "Times New Roman", Times, Serif;
+}
 .messages p
 {
 	margin: 6px 0;
@@ -17,12 +21,20 @@ h1
    {
    	margin-top: 40px;
    }
+
 @media(max-width:768px) {
    .cform
    {
-   	margin-top: 120px;
+   	margin-top: 100px;
    }
 }
+@media(max-width:400px) {
+   .cform
+   {
+    margin-top: 150px;
+   }
+}
+
 .crop{
    display: block;
     margin: 0 auto;
